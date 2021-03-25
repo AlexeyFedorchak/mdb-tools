@@ -1,0 +1,30 @@
+{
+    "name": "ms-access/mdb-to-csv",
+    "authors": [
+        {
+            "name": "Oleksii Fedorchak",
+            "email": "ofedorchak68@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5"
+    },
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/OleksiiFedorchak/GmailLogo"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MdbToCsv\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MdbToCsv\\Tests\\": "tests/"
+        }
+    }
+}
