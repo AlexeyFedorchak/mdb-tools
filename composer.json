@@ -3,9 +3,12 @@
     "authors": [
         {
             "name": "Oleksii Fedorchak",
-            "email": "ofedorchak68@gmail.com"
+            "email": "ofedorchak68@gmail.com",
+            "homepage": "https://www.linkedin.com/in/oleksii-fedorchak-web-developer/"
         }
     ],
+    "description": "Parser for MS Access Database files. This package is build and tested on .mdb files but can be tested with other formats",
+    "keywords": ["mdb","ms access","parser"],
     "require": {
         "php": "^7.2.5"
     },
