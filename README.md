@@ -1,4 +1,11 @@
 # Parser for MS Access .mdb files
 
-How to use:
-}
+Documentation is coming...
+
+Example:
+$tables = \MDBTools\Facades\Parsers\MDBParser::loadFile($pathToFile)
+    ->tables();
+
+$data = [];
+foreach ($tables as $table)
+    $data[] = $table->toJson();
