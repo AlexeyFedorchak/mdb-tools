@@ -12,5 +12,6 @@ interface IParser
     public function getTableByName(string $tableName): ?ITable;
     public function selectTable(string $tableName): void;
     public function file(): ?IFile;
+    public function tables(): array;
     public function getSelectedTable(): ?ITable;
 }

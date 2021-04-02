@@ -55,11 +55,11 @@ class MDBParserUnit extends MDBToolsTestCase
     public function getTablesTest()
     {
         assertTrue(
-            is_array($this->parser::loadFile($this->sampleFile)->file()->tables())
+            is_array($this->parser::loadFile($this->sampleFile)->tables())
         );
 
         assertTrue(
-            ($this->parser::loadFile($this->sampleFile)->file()->tables()[0] ?? null)
+            ($this->parser::loadFile($this->sampleFile)->tables()[0] ?? null)
             instanceof
             ITable
         );
@@ -72,7 +72,7 @@ class MDBParserUnit extends MDBToolsTestCase
     {
         $parser = $this->parser::loadFile($this->sampleFile);
 
-        $table = $parser->file()->tables()[0] ?? null;
+        $table = $parser->tables()[0] ?? null;
         assertTrue($table instanceof ITable);
 
         $parser->selectTable($table->getName());
@@ -87,7 +87,7 @@ class MDBParserUnit extends MDBToolsTestCase
     {
         $parser = $this->parser::loadFile($this->sampleFile);
 
-        $table = $parser->file()->tables()[0] ?? null;
+        $table = $parser->tables()[0] ?? null;
         assertTrue(!is_null($table));
 
         assertTrue($parser->hasTable($table->getName()) === true);
@@ -100,7 +100,7 @@ class MDBParserUnit extends MDBToolsTestCase
     {
         $parser = $this->parser::loadFile($this->sampleFile);
 
-        $table = $parser->file()->tables()[0] ?? null;
+        $table = $parser->tables()[0] ?? null;
         assertTrue(!is_null($table));
 
         assertTrue($parser->getTableByName($table->getName()) instanceof ITable);

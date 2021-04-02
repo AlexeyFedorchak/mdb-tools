@@ -117,6 +117,19 @@ class MDBParser implements IParser
     }
 
     /**
+     * get tables if file is loaded
+     *
+     * @return array
+     */
+    public function tables(): array
+    {
+        if (!$this->file())
+            return [];
+
+        return $this->file()->tables();
+    }
+
+    /**
      * get selected table if selected..
      *
      * @return ?ITable

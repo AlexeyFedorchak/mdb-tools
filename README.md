@@ -4,7 +4,7 @@ Documentation is coming...
 
 Example:
 $parser = \MDBTools\Facades\Parsers\MDBParser::loadFile($pathToFile);
-$tables = $parser->file()->tables();
+$tables = $parser->tables();
 
 //see table names...
 
