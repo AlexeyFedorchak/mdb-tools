@@ -22,10 +22,11 @@ abstract class Facade
      *
      * @param string $name
      * @param array $arguments
+     * @return mixed
      */
     public static function __callStatic(string $name , array $arguments)
     {
-        self::$parser->$name($arguments[0]);
+        return self::$parser->$name($arguments[0]);
     }
 
     /**
@@ -33,9 +34,10 @@ abstract class Facade
      *
      * @param string $name
      * @param array $arguments
+     * @return mixed
      */
     public function __call(string$name, array $arguments)
     {
-        $this->nonStaticParser->$name($arguments[0]);
+        return $this->nonStaticParser->$name($arguments[0]);
     }
 }

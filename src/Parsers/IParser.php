@@ -2,6 +2,7 @@
 
 namespace MDBTools\Parsers;
 
+use MDBTools\Files\IFile;
 use MDBTools\Tables\ITable;
 
 interface IParser
@@ -10,4 +11,6 @@ interface IParser
     public function hasTable(string $tableName): bool;
     public function getTableByName(string $tableName): ?ITable;
     public function selectTable(string $tableName): void;
+    public function file(): ?IFile;
+    public function getSelectedTable(): ?ITable;
 }

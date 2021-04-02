@@ -3,7 +3,9 @@
 namespace MDBTools\Tests\Units;
 
 use MDBTools\Facades\Parsers\MDBParser;
+use MDBTools\Files\IFile;
 use MDBTools\Parsers\IParser;
+use MDBTools\Tables\ITable;
 use MDBTools\Tests\MDBToolsTestCase;
 use function PHPUnit\Framework\assertTrue;
 
@@ -29,6 +31,78 @@ class MDBParserUnit extends MDBToolsTestCase
      */
     public function loadFileTest()
     {
-        assertTrue($this->parser::loadFile($this->sampleFile) instanceof IParser);
+        assertTrue(
+            $this->parser::loadFile($this->sampleFile)
+            instanceof IParser
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function getFileTest()
+    {
+        assertTrue(
+            $this->parser::loadFile($this->sampleFile)->file()
+            instanceof
+            IFile
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function getTablesTest()
+    {
+        assertTrue(
+            is_array($this->parser::loadFile($this->sampleFile)->file()->tables())
+        );
+
+        assertTrue(
+            ($this->parser::loadFile($this->sampleFile)->file()->tables()[0] ?? null)
+            instanceof
+            ITable
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function selectTableTest()
+    {
+        $parser = $this->parser::loadFile($this->sampleFile);
+
+        $table = $parser->file()->tables()[0] ?? null;
+        assertTrue($table instanceof ITable);
+
+        $parser->selectTable($table->getName());
+
+        assertTrue($parser->getSelectedTable() instanceof ITable);
+    }
+
+    /**
+     * @test
+     */
+    public function hasTableTest()
+    {
+        $parser = $this->parser::loadFile($this->sampleFile);
+
+        $table = $parser->file()->tables()[0] ?? null;
+        assertTrue(!is_null($table));
+
+        assertTrue($parser->hasTable($table->getName()) === true);
+    }
+
+    /**
+     * @test
+     */
+    public function getTableByNameTest()
+    {
+        $parser = $this->parser::loadFile($this->sampleFile);
+
+        $table = $parser->file()->tables()[0] ?? null;
+        assertTrue(!is_null($table));
+
+        assertTrue($parser->getTableByName($table->getName()) instanceof ITable);
     }
 }

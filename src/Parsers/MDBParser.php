@@ -7,6 +7,7 @@ use MDBTools\Exceptions\MDBFileIsNotFound;
 use MDBTools\Exceptions\MDBToolsIsNotInstalled;
 use MDBTools\Exceptions\NoTablesFound;
 use MDBTools\Exceptions\TableIsNotFound;
+use MDBTools\Files\IFile;
 use MDBTools\Files\MDBFile;
 use MDBTools\Tables\ITable;
 use MDBTools\Tables\MDBTable;
@@ -103,6 +104,26 @@ class MDBParser implements IParser
             throw new TableIsNotFound();
 
         $this->selectedTable = $this->getTableByName($tableName);
+    }
+
+    /**
+     * get file if loaded
+     *
+     * @return ?IFile
+     */
+    public function file(): ?IFile
+    {
+        return $this->MDBfile;
+    }
+
+    /**
+     * get selected table if selected..
+     *
+     * @return ?ITable
+     */
+    public function getSelectedTable(): ?ITable
+    {
+        return $this->selectedTable;
     }
 
     /**
