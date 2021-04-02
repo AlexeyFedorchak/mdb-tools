@@ -51,7 +51,7 @@ class MDBFile implements IFile
             if (empty(trim($table)))
                 continue;
 
-            $tables = new MDBTable($table, $this);
+            $tables[] = new MDBTable($table, $this);
         }
 
         return $tables;

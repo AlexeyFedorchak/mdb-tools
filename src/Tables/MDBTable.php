@@ -131,9 +131,11 @@ class MDBTable implements ITable
     }
 
     /**
+     * @param string $name
+     * @param array $arguments
      * @throws IncorrectFormatChosen
      */
-    public function __call()
+    public function __call(string $name, array $arguments)
     {
         throw new IncorrectFormatChosen();
     }
