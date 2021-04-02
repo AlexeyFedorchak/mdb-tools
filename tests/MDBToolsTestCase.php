@@ -3,6 +3,7 @@
 namespace MDBTools\Tests;
 
 use MDBTools\Parsers\IParser;
+use MDBTools\Tables\ITable;
 use PHPUnit\Framework\TestCase;
 
 class MDBToolsTestCase extends TestCase
@@ -11,6 +12,11 @@ class MDBToolsTestCase extends TestCase
      * @var IParser
      */
     protected $parser;
+
+    /**
+     * @var ITable
+     */
+    protected $table;
 
     /**
      * @var string
@@ -41,5 +47,23 @@ class MDBToolsTestCase extends TestCase
     public function setUpParser(string $facadeName)
     {
         $this->parser = new $facadeName;
+    }
+
+    /**
+     * set up table for testing
+     *
+     * @return mixed
+     */
+    public function setUpTable()
+    {
+        if (!$this->parser)
+            die('Parser is not set up! Please use "setUpParser" in constructor to set up parser' . "\r\n");
+
+        $table = $this->parser->loadFile($this->sampleFile)->tables()[0] ?? null;
+
+        if (!$table)
+            die('Seems like sample file is not correct or doesn\'t contain any tables!'. "\r\n");
+
+        $this->table = $table;
     }
 }

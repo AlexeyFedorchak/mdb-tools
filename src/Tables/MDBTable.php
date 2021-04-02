@@ -114,7 +114,7 @@ class MDBTable implements ITable
     {
         $output = shell_exec('mdb-export ' . $this->MDBfile->getPath() . ' ' . $this->name . ' > ' . $this->name);
 
-        if (empty($output))
+        if (!empty($output))
             throw new ErrorOnParsingTable($output);
 
         if (!file_exists($this->name))
