@@ -1,12 +1,13 @@
 <?php
 
-namespace MDBParser;
+namespace MDBTools\Tables;
 
-use MDBParser\Exceptions\IncorrectFormatChosen;
-use MDBParser\Exceptions\ErrorOnParsingTable;
-use MDBParser\Exceptions\ParsingFileNotFound;
+use MDBTools\Exceptions\IncorrectFormatChosen;
+use MDBTools\Exceptions\ErrorOnParsingTable;
+use MDBTools\Exceptions\ParsingFileNotFound;
+use MDBTools\Files\MDBFile;
 
-class MDBTable
+class MDBTable implements ITable
 {
     /**
      * @var string
@@ -104,20 +105,12 @@ class MDBTable
     }
 
     /**
-     * @throws IncorrectFormatChosen
-     */
-    public function __call()
-    {
-        throw new IncorrectFormatChosen();
-    }
-
-    /**
      * create csv file which will be used for parsing data
      *
      * @throws ErrorOnParsingTable
      * @throws ParsingFileNotFound
      */
-    private function createCSVFileOrFail()
+    private function createCSVFileOrFail(): void
     {
         $output = shell_exec('mdb-export ' . $this->MDBfile->getPath() . ' ' . $this->name . ' > ' . $this->name);
 
@@ -131,9 +124,17 @@ class MDBTable
     /**
      * remove csv file if exists
      */
-    private function removeCSVFile()
+    private function removeCSVFile(): void
     {
         if (file_exists($this->name))
             unlink($this->name);
+    }
+
+    /**
+     * @throws IncorrectFormatChosen
+     */
+    public function __call()
+    {
+        throw new IncorrectFormatChosen();
     }
 }

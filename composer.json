@@ -1,5 +1,5 @@
 {
-    "name": "ms-access/mdb-to-csv",
+    "name": "mdb-tools/mdb-parser",
     "authors": [
         {
             "name": "Oleksii Fedorchak",
@@ -19,12 +19,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "MDBParser\\": "src/"
+            "MDBTools\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MdbToCsv\\Tests\\": "tests/"
+            "MDBTools\\Tests\\": "tests/"
         }
     }
 }

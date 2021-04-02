@@ -1,11 +1,12 @@
 <?php
 
-namespace MDBParser;
+namespace MDBTools\Files;
 
-use MDBParser\Exceptions\MDBFileIsNotFound;
-use MDBParser\Exceptions\NoTablesFound;
+use MDBTools\Exceptions\MDBFileIsNotFound;
+use MDBTools\Exceptions\NoTablesFound;
+use MDBTools\Tables\MDBTable;
 
-class MDBFile
+class MDBFile implements IFile
 {
     /**
      * @var string

@@ -1,6 +1,6 @@
 <?php
 
-namespace MDBParser\Exceptions;
+namespace MDBTools\Exceptions;
 
 class NoTablesFound extends \Exception
 {
