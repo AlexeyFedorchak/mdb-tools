@@ -3,9 +3,9 @@
 Documentation is coming...
 
 Example:
-$tables = \MDBTools\Facades\Parsers\MDBParser::loadFile($pathToFile)
-    ->tables();
+$parser = \MDBTools\Facades\Parsers\MDBParser::loadFile($pathToFile);
+$tables = $parser->file()->tables();
 
-$data = [];
-foreach ($tables as $table)
-    $data[] = $table->toJson();
+//see table names...
+
+print_r($parser->selectTable('some_table')->toArray());
