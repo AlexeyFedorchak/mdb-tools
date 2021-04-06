@@ -1,4 +1,19 @@
 # PHP Parser for MS Access .mdb files
+**Description**
+
+If you challenged the problem with integrating you app with MS Access database, then you in correct place!
+This package can parse MS Access backup files ".mdb" files.
+
+Of course there is not magic behind of this, and to make it work you need to install special utility,
+which is able to read .mdb files. That utility called "mdb-tools".
+
+**How it works?**
+
+There is simple idea! The package is transferring your .mdb file to mdb-tools CLI.
+So, when you query tables list, this package just run in CLI:
+```
+mdb-tables backup.mdb
+```
 
 **Installation**
 
