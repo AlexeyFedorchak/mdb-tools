@@ -2,7 +2,7 @@
 
 **Installation**
 
-1) Install mdb-tools globally on your machine:
+1. Install mdb-tools globally on your machine:
 ```
 apt-get update -y
 ```
@@ -10,7 +10,7 @@ apt-get update -y
 apt-get install -y mdbtools
 ```
 
-2) Install Composer PHP package:
+2. Install Composer PHP package:
 ```
 composer require mdb-tools/mdb-parser
 ```
