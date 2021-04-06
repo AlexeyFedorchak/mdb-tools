@@ -1,4 +1,5 @@
 # PHP Parser for MS Access .mdb files
+
 **Installation**
 
 1) Install mdb-tools globally on your machine:
@@ -25,7 +26,7 @@ use MDBTools\Facades\Parsers\MDBParser;
 After you may do things like this:
 ```PHP
 //load you file
-$parser = \MDBTools\Facades\Parsers\MDBParser::loadFile('/path/to/file');
+$parser = MDBParser::loadFile('/path/to/file');
 
 //see table names...
 $tables = $parser->tables();
@@ -35,6 +36,6 @@ print_r($parser->selectTable('some_table')->toArray());
 ```
 **Links**
 
- - Visit author's ![linkedin](https://www.linkedin.com/in/oleksii-fedorchak-web-developer/)
- - Composer package ![link](https://packagist.org/packages/mdb-tools/mdb-parser)
+ - Visit author's [linkedin](https://www.linkedin.com/in/oleksii-fedorchak-web-developer/)
+ - Composer package [link](https://packagist.org/packages/mdb-tools/mdb-parser)
  - Documentation website is coming...
