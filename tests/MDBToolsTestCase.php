@@ -21,7 +21,7 @@ class MDBToolsTestCase extends TestCase
     /**
      * @var string
      */
-    protected $sampleFile = 'sample.mdb';
+    protected $sampleFile = __DIR__ . '/../sample.mdb';
 
     /**
      * create env version of test case class
