@@ -6,7 +6,7 @@ use MDBTools\Parsers\IParser;
 use MDBTools\Tables\ITable;
 use PHPUnit\Framework\TestCase;
 
-class MDBToolsTestCase extends TestCase
+abstract class MDBToolsTestCase extends TestCase
 {
     /**
      * @var IParser
