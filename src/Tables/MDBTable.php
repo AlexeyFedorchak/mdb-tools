@@ -112,7 +112,7 @@ class MDBTable implements ITable
      */
     private function createCSVFileOrFail(): void
     {
-        $output = shell_exec('mdb-export ' . $this->MDBfile->getPath() . ' ' . $this->name . ' > ' . $this->name);
+        $output = shell_exec('mdb-export ' . $this->MDBfile->getPath() . ' "' . $this->name . '" > "' . $this->name . '"');
 
         if (!empty($output))
             throw new ErrorOnParsingTable($output);
