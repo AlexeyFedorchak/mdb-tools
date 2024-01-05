@@ -42,12 +42,12 @@ class MDBFile implements IFile
      */
     public function tables(): array
     {
-        $output = shell_exec('mdb-tables ' . $this->pathToMDBFile);
+        $output = shell_exec('mdb-tables --single-column ' . $this->pathToMDBFile);
         if (!$output)
             throw new NoTablesFound();
 
         $tables = [];
-        foreach (explode(' ',  $output) as $table) {
+        foreach (explode("\n",  $output) as $table) {
             if (empty(trim($table)))
                 continue;
 
