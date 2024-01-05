@@ -10,7 +10,7 @@
     "description": "Parser for MS Access Database files. This package is build and tested on .mdb files but can be tested with other formats",
     "keywords": ["mdb","ms access","parser"],
     "require": {
-        "php": "^7.2.5"
+        "php": "^7.2.5|^8.0"
     },
     "license": "MIT",
     "minimum-stability": "stable",
