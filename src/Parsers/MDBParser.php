@@ -146,7 +146,7 @@ class MDBParser implements IParser
      */
     private function MDBToolsInstalled(): bool
     {
-        return strpos(shell_exec('mdb-tables'), 'command not found') === false;
+        return strpos(shell_exec('mdb-tables --version'), 'command not found') === false;
     }
 
     /**
