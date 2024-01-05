@@ -6,7 +6,7 @@ use MDBTools\Parsers\IParser;
 use MDBTools\Tables\ITable;
 use PHPUnit\Framework\TestCase;
 
-class MDBToolsTestCase extends TestCase
+abstract class MDBToolsTestCase extends TestCase
 {
     /**
      * @var IParser
@@ -21,7 +21,7 @@ class MDBToolsTestCase extends TestCase
     /**
      * @var string
      */
-    protected $sampleFile = 'sample.mdb';
+    protected $sampleFile = __DIR__ . '/../sample.mdb';
 
     /**
      * create env version of test case class
